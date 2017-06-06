@@ -6,9 +6,9 @@ package model
 case class Question(text: String, answerType: AnswerType)
 
 object Question{
-  val nameQuestion = Question("What's your name?", FreeTextType())
-  val driverLicenseQuestion = Question("Do you have a driving license?", BooleanType())
-  val petNameQuestion = Question("Enter your pet's name please?", FreeTextType())
-  val ageQuestion = Question("How old are you?", FreeTextType())
+  val name = Question("What's your name?", FreeTextType())
+  val driverLicense = Question("Do you have a driving license?", BooleanType())
+  val petName = Question("Enter your pet's name please?", FreeTextType())
+  val age = Question("How old are you?", FreeTextType())
 
 }

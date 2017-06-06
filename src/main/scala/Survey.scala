@@ -1,4 +1,4 @@
-import model.{Age, BooleanType, FreeTextType, Question}
+import model.{Age, Question}
 
 import scala.util.{Failure, Success, Try}
 
@@ -11,16 +11,16 @@ trait SurveyTrait {
   val input: Input
 
   def main(args: Array[String]): Unit = {
-    output.askQuestion(Question.nameQuestion)
-    output.askQuestion(Question.ageQuestion)
+    output.askQuestion(Question.name)
+    output.askQuestion(Question.age)
 
     val age = getAgeFromPrompt
 
     age match {
       case x if x < Age.decisionAge =>
-        output.askQuestion(Question.petNameQuestion)
+        output.askQuestion(Question.petName)
       case _ =>
-        output.askQuestion(Question.driverLicenseQuestion)
+        output.askQuestion(Question.driverLicense)
     }
   }
 
@@ -30,11 +30,11 @@ trait SurveyTrait {
     } match {
       case Success(age) => age match {
         case x if x > Age.minAge && x < Age.maxAge => x
-        case _ => output.askQuestion(Question.ageQuestion)
+        case _ => output.askQuestion(Question.age)
           getAgeFromPrompt
       }
       case Failure(_) =>
-        output.askQuestion(Question.ageQuestion)
+        output.askQuestion(Question.age)
         getAgeFromPrompt
     }
   }
